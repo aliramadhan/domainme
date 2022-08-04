@@ -14,13 +14,14 @@ class DomainController extends Controller
     	//cek if submit
     	$domainUse = null;
     	$domains = null;
+		$domain = $request->domain;
+
     	if ($request->domain != null) {
     		//cek domain with TLD
     		$arrayDomain = explode('.', $request->domain);
     		if (count($arrayDomain) < 2) {
     			$domain = $request->domain.'.com';
     		}
-
     		//cek domain availability
 	    	$whois = new Whois($domain);
 	    	$domainUse = collect([
