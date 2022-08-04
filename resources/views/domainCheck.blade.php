@@ -36,11 +36,39 @@
 
 	        <div class="w-full flex flex-col sm:flex-row sm:justify-center gap-2.5">
 	          	<form class="w-full md:max-w-md flex gap-2">
-	          		<input placeholder="Type the domain name you want to get" class="w-full flex-1 bg-gray-50 text-gray-800 placeholder-gray-500 border focus:ring ring-blue-300 rounded outline-none transition duration-100 px-3 py-2" />
+	          		<input placeholder="Type the domain name you want to get" name="domain" @if($domainUse != null) value="{{$domainUse['domain']}}" @endif class="w-full flex-1 bg-gray-50 text-gray-800 placeholder-gray-500 border focus:ring ring-blue-300 rounded outline-none transition duration-100 px-3 py-2" />
 
 	          		<button class="inline-block bg-blue-500 hover:bg-blue-600 active:bg-blue-700 focus-visible:ring ring-blue-300 text-white text-sm md:text-base font-semibold text-center rounded outline-none transition duration-100 px-8 py-2">Check</button>
 		        </form>
 	        </div>
+	        @if($domains != null)
+	        <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+			    <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
+			        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+			            <tr>
+			                <th scope="col" class="py-3 px-6">
+			                    Domain Name
+			                </th>
+			                <th scope="col" class="py-3 px-6">
+			                    Status
+			                </th>
+			            </tr>
+			        </thead>
+			        <tbody>
+			        	@foreach($domains as $itemDomain)
+			            <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
+			                <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+			                    {{$itemDomain['domain']}}
+			                </th>
+			                <td class="py-4 px-6">
+			                    {{$itemDomain['isAvailable']}}
+			                </td>
+			            </tr>
+			            @endforeach
+			        </tbody>
+			    </table>
+			</div>
+			@endif
 	      </div>
 
 	      <!-- social - start -->
