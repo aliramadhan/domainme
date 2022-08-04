@@ -61,7 +61,11 @@
 			                    {{$itemDomain['domain']}}
 			                </th>
 			                <td class="py-4 px-6">
-			                    {{$itemDomain['isAvailable']}}
+			                    @if($itemDomain['isAvailable'])
+			                    	Domain Tersedia
+			                    @else
+			                    	Domain tidak Tersedia
+			                    @endif
 			                </td>
 			            </tr>
 			            @endforeach
