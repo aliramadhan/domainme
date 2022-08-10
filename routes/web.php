@@ -11,10 +11,10 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/domain-check', [App\Http\Controllers\DomainController::class, 'domainCheck']);
+*/
+Route::get('/', [App\Http\Controllers\DomainController::class, 'domainCheck']);

@@ -42,7 +42,22 @@
 		        </form>
 	        </div>
 	        @if($domains != null)
-	        <div class="overflow-x-auto relative shadow-md sm:rounded-lg mt-4">
+	        <!-- Domain check --> 
+	        <div class="@if($domainUse['isAvailable']) bg-blue-100 @else bg-red-100 @endif mt-4 shadow-xl shadow-gray-100 w-full max-w-4xl flex flex-col sm:flex-row gap-3 sm:items-center  justify-between px-5 py-4 rounded-md">
+				<div>
+					<h1 class="font-bold mt-px">{{$domainUse['domain']}}</h1>
+				</div>
+  				<div>
+  					@if($domainUse['isAvailable'])
+		    			<span class="rounded-lg p-4 mb-4 text-sm text-green-700">DOMAIN AVAILABLE</span>
+
+  					@else
+		    			<span class="rounded-lg p-4 mb-4 text-sm text-red-700">DOMAIN TAKEN</span>
+  					@endif
+  				</div>
+   			</div>
+
+	        <div class="bg-white mt-5  w-full max-w-4xl flex flex-col sm:flex-row gap-3 sm:items-center  justify-between px-5 py-4 rounded-md">
 			    <table class="table-auto w-full text-sm text-left text-gray-500 dark:text-gray-400">
 			        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
 			            <tr>
@@ -62,9 +77,9 @@
 			                </th>
 			                <td class="py-4 px-6">
 			                    @if($itemDomain['isAvailable'])
-			                    	Domain Tersedia
+		    						<span class="rounded-lg p-4 mb-4 text-sm text-green-700">DOMAIN AVAILABLE</span>
 			                    @else
-			                    	Domain tidak Tersedia
+		    						<span class="rounded-lg p-4 mb-4 text-sm text-red-700">DOMAIN TAKEN</span>
 			                    @endif
 			                </td>
 			            </tr>
